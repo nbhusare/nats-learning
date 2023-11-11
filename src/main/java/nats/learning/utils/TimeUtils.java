@@ -1,5 +1,7 @@
 package nats.learning.utils;
 
+import lombok.extern.slf4j.XSlf4j;
+
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 

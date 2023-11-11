@@ -1,9 +1,6 @@
 package nats.learning.utils;
 
-import io.nats.client.Connection;
-import io.nats.client.Dispatcher;
-import io.nats.client.MessageHandler;
-import io.nats.client.Nats;
+import io.nats.client.*;
 
 import java.io.IOException;
 
@@ -13,7 +10,16 @@ public class NatsUtils {
         return Nats.connect();
     }
 
+    public static Connection newConnection(Options options) throws IOException, InterruptedException {
+        return Nats.connect(options);
+    }
+
     public static Dispatcher newSubscriber(Connection connection, MessageHandler messageHandler) {
         return connection.createDispatcher(messageHandler);
     }
+
+    public static Dispatcher newSubscriber(Connection connection) {
+        return connection.createDispatcher();
+    }
+
 }

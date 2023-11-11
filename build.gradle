@@ -9,6 +9,16 @@ repositories {
 dependencies {
     implementation 'com.google.guava:guava:31.0.1-jre'
     implementation 'io.nats:jnats:2.16.13'
+    implementation 'com.github.docker-java:docker-java:3.3.4'
+
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.30'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
 }
 
 testing {

@@ -1,20 +1,20 @@
-package nats.learning;
+package nats.learning.core;
+
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
 import static nats.learning.utils.MessageUtils.toMsgString;
 import static nats.learning.utils.NatsUtils.newConnection;
 import static nats.learning.utils.NatsUtils.newSubscriber;
-import static nats.learning.utils.PrintUtils.print;
 
+@Slf4j
 public class QueueGroupSubscriber {
     private static final String subject = "time.*";
 
-    private static final String queueGroup = "time.local";
-
     public static void main(String[] args) throws InterruptedException, IOException {
         newSubscriber(newConnection(), (message) -> {
-            print("SUB-02, Local time is : {0}", toMsgString(message));
-        }).subscribe(subject, queueGroup);
+            log.info("SUB-02: Local time is '{}'", toMsgString(message));
+        }).subscribe(subject, CoreNatsTests.QUEUE_GROUP_NAME);
     }
 }
